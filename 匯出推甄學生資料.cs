@@ -17,7 +17,7 @@ namespace 大學推甄校內志願選填系統
         {
             wizard.ExportableFields.AddRange("身分證號", "排名", "總分", "成績內容", "分發校系代碼", "分發學校", "分發科系", "確定分發結果", "組別", "梯次", "備註");
             wizard.PackageLimit = 200;
-            wizard.ExportPackage += delegate(object sender, SmartSchool.API.PlugIn.Export.ExportPackageEventArgs e)
+            wizard.ExportPackage += delegate (object sender, SmartSchool.API.PlugIn.Export.ExportPackageEventArgs e)
             {
                 FISCA.UDT.Condition.InCondition condition = new FISCA.UDT.Condition.InCondition();
                 condition.Field = "RefStudentID";

@@ -262,7 +262,7 @@
             this.Controls.Add(this.labelX1);
             this.Controls.Add(this.txt成績內容);
             this.Group = "推甄分發";
-            this.Name = "推甄資料毛毛蟲";
+            this.Name = "校內志願選填-推甄資料";
             this.Size = new System.Drawing.Size(550, 335);
             this.CancelButtonClick += new System.EventHandler(this.推甄資料毛毛蟲_CancelButtonClick);
             this.PrimaryKeyChanged += new System.EventHandler(this.推甄資料毛毛蟲_PrimaryKeyChanged);

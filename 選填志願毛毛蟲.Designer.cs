@@ -119,7 +119,8 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.advTree1);
-            this.Name = "選填志願毛毛蟲";
+            this.Group = "推甄分發";
+            this.Name = "校內志願選填-選填志願";
             this.Size = new System.Drawing.Size(550, 195);
             this.CancelButtonClick += new System.EventHandler(this.選填志願毛毛蟲_CancelButtonClick);
             this.PrimaryKeyChanged += new System.EventHandler(this.選填志願毛毛蟲_PrimaryKeyChanged);

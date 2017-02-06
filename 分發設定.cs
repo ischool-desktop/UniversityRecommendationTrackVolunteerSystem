@@ -22,5 +22,7 @@ namespace 大學推甄校內志願選填系統
         public string 發佈訊息 { get; set; }
         [Field]
         public string 跳出訊息 { get; set; }
+        [Field]
+        public bool 禁止學生互查 { get; set; }
     }
 }

@@ -42,6 +42,8 @@ namespace 大學推甄校內志願選填系統
 
                 checkBoxX1.Checked = list[0].允許跨組;
 
+                checkBoxX2.Checked = list[0].禁止學生互查;
+
                 richTextBox1.Text = list[0].發佈訊息;
 
                 textBoxX1.Text = list[0].跳出訊息;
@@ -64,7 +66,8 @@ namespace 大學推甄校內志願選填系統
                 發佈訊息 = richTextBox1.Text,
                 結束時間 = (dateTimeInput2.IsEmpty ? null : new DateTime?(dateTimeInput2.Value)),
                 開放時間 = (dateTimeInput1.IsEmpty ? null : new DateTime?(dateTimeInput1.Value)),
-                開放梯次 = (integerInput2.IsEmpty ? null : new int?(integerInput2.Value))
+                開放梯次 = (integerInput2.IsEmpty ? null : new int?(integerInput2.Value)),
+                禁止學生互查 = checkBoxX2.Checked
             });
             list.SaveAll();
             this.Close();

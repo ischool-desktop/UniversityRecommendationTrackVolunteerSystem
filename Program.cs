@@ -5,6 +5,7 @@ using FISCA;
 using FISCA.Presentation;
 using FISCA.UDT;
 using K12.Data;
+using System.Diagnostics;
 
 namespace 大學推甄校內志願選填系統
 {
@@ -16,121 +17,143 @@ namespace 大學推甄校內志願選填系統
         [MainMethod]
         public static void Main()
         {
-            var btnmanager = MotherForm.RibbonBarItems["教務作業", "推甄分發系統"]["推甄校系管理"];
-            btnmanager.Image = K12.Presentation.NLDPanels.Student.RibbonBarItems["匯出/匯入"].OverflowButtonImage;//雖然自己搶自己不算搶劫，但是真的很土匪。
-            btnmanager.Size = RibbonBarButton.MenuButtonSize.Large;
-            btnmanager.Click += delegate
             {
-                new 校系資料管理().ShowDialog();
-            };
-
-            var btnCombat = MotherForm.RibbonBarItems["教務作業", "推甄分發系統"]["分發"];
-            btnCombat.Click += delegate
-            {
-                new 志願分發().ShowDialog();
-            };
-            var btnFinal = MotherForm.RibbonBarItems["教務作業", "推甄分發系統"]["確定分發"];
-            btnFinal.Click += delegate
-            {
-                new 確定分發().ShowDialog();
-            };
-            MotherForm.RibbonBarItems["教務作業", "推甄分發系統"]["設定"].Click += delegate
-            {
-                new 分發設定管理().ShowDialog();
-            };
-
-            //MotherForm.StartMenu["DeBug"].BeginGroup = true;
-            //MotherForm.StartMenu["DeBug"]["重新載入校系資料"].Click += new EventHandler(Program_Click);
-
-            //MotherForm.StartMenu["DeBug"]["重載學生排名及分發資料"].Click += new EventHandler(Program_Click2);
-            //MotherForm.StartMenu["DeBug"]["重置設定檔"].Click += new EventHandler(Program_Click3);
-            //MotherForm.StartMenu["DeBug"]["重置設定檔"]["不分梯"].Click += delegate
-            //{
-            //    List<分發設定> list = new AccessHelper().Select<分發設定>();
-            //    foreach (var item in list)
-            //    {
-            //        item.Deleted = true;
-            //    }
-            //    list.Add(new 分發設定() { 允許跨組 = true, 志願上限 = 5, 發佈訊息 = "不分梯次填報", 結束時間 = new DateTime(2009, 12, 31), 開放時間 = new DateTime(2009, 12, 1), 開放梯次 = 0 });
-            //    list.SaveAll();
-            //};
-            //MotherForm.StartMenu["DeBug"]["重置設定檔"]["第一梯"].Click += delegate
-            //{
-            //    List<分發設定> list = new AccessHelper().Select<分發設定>();
-            //    foreach (var item in list)
-            //    {
-            //        item.Deleted = true;
-            //    }
-            //    //list.Add(new 分發設定() { 允許跨組 = true, 志願上限 = 5, 發佈訊息 = "開放第一梯次填報", 結束時間 = new DateTime(2009, 12, 31), 開放時間 = new DateTime(2009, 12, 1), 開放梯次 = 1 });
-            //    list.Add(new 分發設定() { 允許跨組 = true, 志願上限 = 6, 發佈訊息 = "開放第1梯次選填\\n有問題請洽教務處註冊組\\n\\n正式開始時間：\\n　　第1梯次(各組排名1~25名)：12/23 15:00 ~ 12/24 09:00\\n　　第2梯次(各組排名26~50名)：12/24 15:00 ~ 12/25 09:00\\n　　第3梯次(各組排名51~名)：12/25 15:00 ~ 12/26 09:00", 結束時間 = new DateTime(2009, 12, 21, 13, 0, 0), 開放時間 = new DateTime(2009, 12, 20, 15, 0, 0), 開放梯次 = 1 });
-            //    list.SaveAll();
-            //};
-            //MotherForm.StartMenu["DeBug"]["重置設定檔"]["第二梯"].Click += delegate
-            //{
-            //    List<分發設定> list = new AccessHelper().Select<分發設定>();
-            //    foreach (var item in list)
-            //    {
-            //        item.Deleted = true;
-            //    }
-            //    //list.Add(new 分發設定() { 允許跨組 = true, 志願上限 = 5, 發佈訊息 = "開放第二梯次填報", 結束時間 = new DateTime(2009, 12, 31), 開放時間 = new DateTime(2009, 12, 1), 開放梯次 = 2 });
-            //    list.Add(new 分發設定() { 允許跨組 = true, 志願上限 = 6, 發佈訊息 = "開放第2梯次選填\\n有問題請洽教務處註冊組\\n\\n正式開始時間：\\n　　第1梯次(各組排名1~25名)：12/23 15:00 ~ 12/24 09:00\\n　　第2梯次(各組排名26~50名)：12/24 15:00 ~ 12/25 09:00\\n　　第3梯次(各組排名51~名)：12/25 15:00 ~ 12/26 09:00", 結束時間 = new DateTime(2009, 12, 21, 15, 0, 0), 開放時間 = new DateTime(2009, 12, 22, 9, 0, 0), 開放梯次 = 2 });
-            //    list.SaveAll();
-            //};
-            //MotherForm.StartMenu["DeBug"]["重置設定檔"]["第三梯"].Click += delegate
-            //{
-            //    List<分發設定> list = new AccessHelper().Select<分發設定>();
-            //    foreach (var item in list)
-            //    {
-            //        item.Deleted = true;
-            //    }
-            //    //list.Add(new 分發設定() { 允許跨組 = true, 志願上限 = 5, 發佈訊息 = "開放第三梯次填報", 結束時間 = new DateTime(2009, 12, 31), 開放時間 = new DateTime(2009, 12, 1), 開放梯次 = 3 });
-            //    list.Add(new 分發設定() { 允許跨組 = true, 志願上限 = 6, 發佈訊息 = "開放第3梯次選填\\n有問題請洽教務處註冊組\\n\\n正式開始時間：\\n　　第1梯次(各組排名1~25名)：12/23 15:00 ~ 12/24 09:00\\n　　第2梯次(各組排名26~50名)：12/24 15:00 ~ 12/25 09:00\\n　　第3梯次(各組排名51~名)：12/25 15:00 ~ 12/26 09:00", 結束時間 = new DateTime(2009, 12, 22, 15, 0, 0), 開放時間 = new DateTime(2009, 12, 23, 9, 0, 0), 開放梯次 = 3 });
-            //    list.SaveAll();
-            //};
-
-
-            MotherForm.StartMenu["分發系統"].BeginGroup = true;
-            MotherForm.StartMenu["分發系統"]["系統設定"].Click += delegate
-            {
-                new 分發設定管理().ShowDialog();
-            };
-            MotherForm.StartMenu["分發系統"]["清除所有分發結果"].Click += delegate
-            {
-                List<推甄學生資料> list2 = new AccessHelper().Select<推甄學生資料>();
-                foreach (var item in list2)
+                FISCA.Permission.RoleAclSource.Instance["大學推甄校內志願選填系統"]["教務作業"].Add(new FISCA.Permission.RibbonFeature("D2A76B72-F552-48C4-A2F9-273DCE5BE74F", "志願選填開放設定"));
+                MotherForm.RibbonBarItems["教務作業", "大學推甄校內志願選填系統"]["志願選填開放設定"].Enable = FISCA.Permission.UserAcl.Current["D2A76B72-F552-48C4-A2F9-273DCE5BE74F"].Executable;
+                MotherForm.RibbonBarItems["教務作業", "大學推甄校內志願選填系統"]["志願選填開放設定"].Click += delegate
                 {
-                    item.確定分發結果 = false;
-                    item.分發結果 = null;
-                }
-                list2.SaveAll();
-            };
-            MotherForm.StartMenu["分發系統"]["清除所有選填志願"].Click += delegate
+                    new 分發設定管理().ShowDialog();
+                };
+            }
             {
-                List<志願> list = new AccessHelper().Select<志願>();
-                foreach (var item in list)
+                FISCA.Permission.RoleAclSource.Instance["大學推甄校內志願選填系統"]["教務作業"].Add(new FISCA.Permission.RibbonFeature("51E6F9F8-B54A-44F9-A1D1-C7477C04CE94", "推甄校系管理"));
+                MotherForm.RibbonBarItems["教務作業", "大學推甄校內志願選填系統"]["推甄校系管理"].Enable = FISCA.Permission.UserAcl.Current["51E6F9F8-B54A-44F9-A1D1-C7477C04CE94"].Executable;
+                MotherForm.RibbonBarItems["教務作業", "大學推甄校內志願選填系統"]["推甄校系管理"].Click += delegate
                 {
-                    item.Deleted = true;
-                }
-                list.SaveAll();
-            };
-            MotherForm.StartMenu["分發系統"]["刪除所有學生資料"].Click += delegate
+                    new 校系資料管理().ShowDialog();
+                };
+            }
             {
-                List<推甄學生資料> list2 = new AccessHelper().Select<推甄學生資料>();
-                foreach (var item in list2)
+                FISCA.Permission.RoleAclSource.Instance["大學推甄校內志願選填系統"]["教務作業"].Add(new FISCA.Permission.RibbonFeature("30992865-DC6B-4FCA-A77A-108B0E96556D", "志願分發"));
+                MotherForm.RibbonBarItems["教務作業", "大學推甄校內志願選填系統"]["志願分發"].Enable = FISCA.Permission.UserAcl.Current["30992865-DC6B-4FCA-A77A-108B0E96556D"].Executable;
+                MotherForm.RibbonBarItems["教務作業", "大學推甄校內志願選填系統"]["志願分發"].Click += delegate
                 {
-                    item.Deleted = true;
-                }
-                list2.SaveAll();
-            };
+                    new 志願分發().ShowDialog();
+                };
+            }
+            {
+                FISCA.Permission.RoleAclSource.Instance["大學推甄校內志願選填系統"]["教務作業"].Add(new FISCA.Permission.RibbonFeature("A69E899A-4A7E-4DC4-A066-9AA2646595A3", "確定分發"));
+                MotherForm.RibbonBarItems["教務作業", "大學推甄校內志願選填系統"]["確定分發"].Enable = FISCA.Permission.UserAcl.Current["A69E899A-4A7E-4DC4-A066-9AA2646595A3"].Executable;
+                MotherForm.RibbonBarItems["教務作業", "大學推甄校內志願選填系統"]["確定分發"].Click += delegate
+                {
+                    new 確定分發().ShowDialog();
+                };
+            }
+            //{
+            //    MotherForm.RibbonBarItems["教務作業", "推甄分發系統"]["系統說明"]["行政端教學影片"].Click += delegate
+            //    {
+            //        Process.Start("https://www.youtube.com/watch?v=HcM68kIZwQI&feature=youtu.be");
+            //    };
+            //}
+            //{
+            //    MotherForm.RibbonBarItems["教務作業", "推甄分發系統"]["系統說明"]["學生端教學影片"].Click += delegate
+            //    {
+            //        Process.Start("https://www.youtube.com/watch?v=9ZjnPU_VqL8&feature=youtu.be");
+            //    };
+            //}
+            {
+                FISCA.Permission.RoleAclSource.Instance["大學推甄校內志願選填系統"]["系統選單"].Add(new FISCA.Permission.RibbonFeature("606F0ED4-8575-4BF3-91D9-383CA53A6CB0", "系統設定"));
+                MotherForm.StartMenu["大學推甄校內志願選填系統"]["系統設定"].Enable = FISCA.Permission.UserAcl.Current["606F0ED4-8575-4BF3-91D9-383CA53A6CB0"].Executable;
+                //MotherForm.StartMenu["大學推甄校內志願選填系統"].BeginGroup = true;
+                MotherForm.StartMenu["大學推甄校內志願選填系統"]["系統設定"].Click += delegate
+                {
+                    new 分發設定管理().ShowDialog();
+                };
+            }
+            {
+                FISCA.Permission.RoleAclSource.Instance["大學推甄校內志願選填系統"]["系統選單"].Add(new FISCA.Permission.RibbonFeature("1A7CEB76-98D4-4730-B10E-CFCD592CC23E", "清除所有分發結果"));
+                MotherForm.StartMenu["大學推甄校內志願選填系統"]["清除所有分發結果"].Enable = FISCA.Permission.UserAcl.Current["1A7CEB76-98D4-4730-B10E-CFCD592CC23E"].Executable;
+                MotherForm.StartMenu["大學推甄校內志願選填系統"]["清除所有分發結果"].Click += delegate
+                {
+                    List<推甄學生資料> list2 = new AccessHelper().Select<推甄學生資料>();
+                    foreach (var item in list2)
+                    {
+                        item.確定分發結果 = false;
+                        item.分發結果 = null;
+                    }
+                    list2.SaveAll();
+                };
+            }
+            {
+                FISCA.Permission.RoleAclSource.Instance["大學推甄校內志願選填系統"]["系統選單"].Add(new FISCA.Permission.RibbonFeature("9E1C96F2-9048-4E20-AF9B-94E75D27A3C2", "清除所有選填志願"));
+                MotherForm.StartMenu["大學推甄校內志願選填系統"]["清除所有選填志願"].Enable = FISCA.Permission.UserAcl.Current["9E1C96F2-9048-4E20-AF9B-94E75D27A3C2"].Executable;
+                MotherForm.StartMenu["大學推甄校內志願選填系統"]["清除所有選填志願"].Click += delegate
+                {
+                    List<志願> list = new AccessHelper().Select<志願>();
+                    foreach (var item in list)
+                    {
+                        item.Deleted = true;
+                    }
+                    list.SaveAll();
+                };
+            }
+            {
+                FISCA.Permission.RoleAclSource.Instance["大學推甄校內志願選填系統"]["系統選單"].Add(new FISCA.Permission.RibbonFeature("D414FC5B-D2B4-4715-B2A3-DBA0B5BE4464", "刪除所有學生資料"));
+                MotherForm.StartMenu["大學推甄校內志願選填系統"]["刪除所有學生資料"].Enable = FISCA.Permission.UserAcl.Current["D414FC5B-D2B4-4715-B2A3-DBA0B5BE4464"].Executable;
+                MotherForm.StartMenu["大學推甄校內志願選填系統"]["刪除所有學生資料"].Click += delegate
+                {
+                    List<推甄學生資料> list2 = new AccessHelper().Select<推甄學生資料>();
+                    foreach (var item in list2)
+                    {
+                        item.Deleted = true;
+                    }
+                    list2.SaveAll();
+                };
+            }
+            {
+                FISCA.Permission.RoleAclSource.Instance["大學推甄校內志願選填系統"]["學生資料項目"].Add(new FISCA.Permission.RibbonFeature("BA63DF20-1B0E-458E-B0D3-D09E4DDE204C", "推甄資料"));
+                if (FISCA.Permission.UserAcl.Current["BA63DF20-1B0E-458E-B0D3-D09E4DDE204C"].Executable)
+                    K12.Presentation.NLDPanels.Student.AddDetailBulider<推甄資料毛毛蟲>();
+            }
+            {
+                FISCA.Permission.RoleAclSource.Instance["大學推甄校內志願選填系統"]["學生資料項目"].Add(new FISCA.Permission.RibbonFeature("D60F9D70-86BF-4F03-B8AE-FB87B91AD94F", "選填志願"));
+                if (FISCA.Permission.UserAcl.Current["D60F9D70-86BF-4F03-B8AE-FB87B91AD94F"].Executable)
+                    K12.Presentation.NLDPanels.Student.AddDetailBulider<選填志願毛毛蟲>();
+            }
 
-            K12.Presentation.NLDPanels.Student.AddDetailBulider<推甄資料毛毛蟲>();
-            K12.Presentation.NLDPanels.Student.AddDetailBulider<選填志願毛毛蟲>();
-
-            SmartSchool.API.PlugIn.PlugInManager.Student.Exporters.Add(new 匯出推甄學生資料());
-            SmartSchool.API.PlugIn.PlugInManager.Student.Importers.Add(new 匯入推甄學生資料());
-
-
-            SmartSchool.API.PlugIn.PlugInManager.Student.Exporters.Add(new 匯出學生選填志願());
+            {
+                FISCA.Permission.RoleAclSource.Instance["大學推甄校內志願選填系統"]["學生功能按鈕"].Add(new FISCA.Permission.RibbonFeature("16F49DC4-FC80-4A33-B8F7-19321D085803", "匯出推甄學生資料"));
+                K12.Presentation.NLDPanels.Student.RibbonBarItems["資料統計"]["匯出"]["大學推甄校內志願選填系統"]["匯出推甄學生資料"].Enable = FISCA.Permission.UserAcl.Current["16F49DC4-FC80-4A33-B8F7-19321D085803"].Executable;
+                K12.Presentation.NLDPanels.Student.RibbonBarItems["資料統計"]["匯出"]["大學推甄校內志願選填系統"]["匯出推甄學生資料"].Click += delegate
+                {
+                    var exporter = new 匯出推甄學生資料();
+                    SmartSchool.StudentRelated.RibbonBars.Import.ExportStudentV2 wizard = new SmartSchool.StudentRelated.RibbonBars.Import.ExportStudentV2(exporter.Text, exporter.Image);
+                    exporter.InitializeExport(wizard);
+                    wizard.ShowDialog();
+                };
+            }
+            {
+                FISCA.Permission.RoleAclSource.Instance["大學推甄校內志願選填系統"]["學生功能按鈕"].Add(new FISCA.Permission.RibbonFeature("6B2CED74-F39E-42F9-8158-C1117FCD896A", "匯出學生選填志願"));
+                K12.Presentation.NLDPanels.Student.RibbonBarItems["資料統計"]["匯出"]["大學推甄校內志願選填系統"]["匯出學生選填志願"].Enable = FISCA.Permission.UserAcl.Current["6B2CED74-F39E-42F9-8158-C1117FCD896A"].Executable;
+                K12.Presentation.NLDPanels.Student.RibbonBarItems["資料統計"]["匯出"]["大學推甄校內志願選填系統"]["匯出學生選填志願"].Click += delegate
+                {
+                    var exporter = new 匯出學生選填志願();
+                    SmartSchool.StudentRelated.RibbonBars.Import.ExportStudentV2 wizard = new SmartSchool.StudentRelated.RibbonBars.Import.ExportStudentV2(exporter.Text, exporter.Image);
+                    exporter.InitializeExport(wizard);
+                    wizard.ShowDialog();
+                };
+            }
+            {
+                FISCA.Permission.RoleAclSource.Instance["大學推甄校內志願選填系統"]["學生功能按鈕"].Add(new FISCA.Permission.RibbonFeature("5E00AFE4-34B7-4D35-AB8F-2C53EC2FE147", "匯入推甄學生資料"));
+                K12.Presentation.NLDPanels.Student.RibbonBarItems["資料統計"]["匯入"]["大學推甄校內志願選填系統"]["匯入推甄學生資料"].Enable = FISCA.Permission.UserAcl.Current["5E00AFE4-34B7-4D35-AB8F-2C53EC2FE147"].Executable;
+                K12.Presentation.NLDPanels.Student.RibbonBarItems["資料統計"]["匯入"]["大學推甄校內志願選填系統"]["匯入推甄學生資料"].Click += delegate
+                {
+                    var exporter = new 匯入推甄學生資料();
+                    SmartSchool.StudentRelated.RibbonBars.Import.ImportStudentV2 wizard = new SmartSchool.StudentRelated.RibbonBars.Import.ImportStudentV2(exporter.Text, exporter.Image);
+                    exporter.InitializeImport(wizard);
+                    wizard.ShowDialog();
+                };
+            }
         }
 
         static void Program_Click3(object sender, EventArgs e)
