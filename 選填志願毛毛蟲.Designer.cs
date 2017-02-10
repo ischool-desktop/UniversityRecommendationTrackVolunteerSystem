@@ -48,6 +48,7 @@
             // 
             // 
             this.advTree1.BackgroundStyle.Class = "TreeBorderKey";
+            this.advTree1.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.advTree1.CellEdit = true;
             this.advTree1.Columns.Add(this.columnHeader1);
             this.advTree1.Columns.Add(this.columnHeader2);
@@ -64,18 +65,19 @@
             this.advTree1.Styles.Add(this.elementStyle2);
             this.advTree1.TabIndex = 0;
             this.advTree1.Text = "advTree1";
+            this.advTree1.AfterCheck += new DevComponents.AdvTree.AdvTreeCellEventHandler(this.advTree1_AfterCheck);
+            this.advTree1.AfterCellEditComplete += new DevComponents.AdvTree.CellEditEventHandler(this.advTree1_AfterCellEditComplete);
+            this.advTree1.AfterNodeDrop += new DevComponents.AdvTree.TreeDragDropEventHandler(this.advTree1_AfterNodeDrop);
+            this.advTree1.NodeClick += new DevComponents.AdvTree.TreeNodeMouseEventHandler(this.advTree1_NodeClick);
             this.advTree1.NodeDoubleClick += new DevComponents.AdvTree.TreeNodeMouseEventHandler(this.advTree1_NodeDoubleClick);
             this.advTree1.ProvideCustomCellEditor += new DevComponents.AdvTree.CustomCellEditorEventHandler(this.advTree1_ProvideCustomCellEditor);
-            this.advTree1.AfterNodeDrop += new DevComponents.AdvTree.TreeDragDropEventHandler(this.advTree1_AfterNodeDrop);
-            this.advTree1.AfterCellEditComplete += new DevComponents.AdvTree.CellEditEventHandler(this.advTree1_AfterCellEditComplete);
             this.advTree1.DataNodeCreated += new DevComponents.DotNetBar.Controls.DataNodeEventHandler(this.advTree1_DataNodeCreated);
-            this.advTree1.NodeClick += new DevComponents.AdvTree.TreeNodeMouseEventHandler(this.advTree1_NodeClick);
-            this.advTree1.AfterCheck += new DevComponents.AdvTree.AdvTreeCellEventHandler(this.advTree1_AfterCheck);
             // 
             // columnHeader1
             // 
             this.columnHeader1.DataFieldName = "校系資料";
             this.columnHeader1.DoubleClickAutoSize = false;
+            this.columnHeader1.Editable = false;
             this.columnHeader1.EditorType = DevComponents.AdvTree.eCellEditorType.Custom;
             this.columnHeader1.MinimumWidth = 290;
             this.columnHeader1.Name = "columnHeader1";
@@ -107,11 +109,15 @@
             // 
             // elementStyle1
             // 
+            this.elementStyle1.Class = "";
+            this.elementStyle1.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.elementStyle1.Name = "elementStyle1";
             this.elementStyle1.TextColor = System.Drawing.SystemColors.ControlText;
             // 
             // elementStyle2
             // 
+            this.elementStyle2.Class = "";
+            this.elementStyle2.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.elementStyle2.Name = "elementStyle2";
             // 
             // 選填志願毛毛蟲
@@ -119,12 +125,12 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.advTree1);
-            this.Group = "推甄分發";
-            this.Name = "校內志願選填-選填志願";
+            this.Group = "校內志願選填-志願選填";
+            this.Name = "選填志願毛毛蟲";
             this.Size = new System.Drawing.Size(550, 195);
-            this.CancelButtonClick += new System.EventHandler(this.選填志願毛毛蟲_CancelButtonClick);
             this.PrimaryKeyChanged += new System.EventHandler(this.選填志願毛毛蟲_PrimaryKeyChanged);
             this.SaveButtonClick += new System.EventHandler(this.選填志願毛毛蟲_SaveButtonClick);
+            this.CancelButtonClick += new System.EventHandler(this.選填志願毛毛蟲_CancelButtonClick);
             ((System.ComponentModel.ISupportInitialize)(this.advTree1)).EndInit();
             this.ResumeLayout(false);
 

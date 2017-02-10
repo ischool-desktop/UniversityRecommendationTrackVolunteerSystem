@@ -32,7 +32,7 @@ namespace 大學推甄校內志願選填系統
             _BKW.DoWork += delegate
             {
                 list = _AccessHelper.Select<志願>("RefStudentID='" + _RunningID + "'");
-                list.Sort(delegate(志願 o1, 志願 o2)
+                list.Sort(delegate (志願 o1, 志願 o2)
                 {
                     return o1.志願排序.CompareTo(o2.志願排序);
                 });
@@ -43,7 +43,7 @@ namespace 大學推甄校內志願選填系統
                 if (t == null) t = new test();
                 if (_RunningID == PrimaryKey)
                 {
-                    list.Add(new 志願() { StudentRecord = K12.Data.Student.SelectByID(PrimaryKey), 校系資料 = null });
+                    //list.Add(new 志願() { StudentRecord = K12.Data.Student.SelectByID(PrimaryKey), 校系資料 = null });
                     advTree1.DataSource = list;
                     this.SaveButtonVisible = this.CancelButtonVisible = this.Loading = false;
                 }
@@ -68,7 +68,7 @@ namespace 大學推甄校內志願選填系統
 
         private void advTree1_ProvideCustomCellEditor(object sender, CustomCellEditorEventArgs e)
         {
-            e.EditControl = t;
+                e.EditControl = t;
         }
         Node InsertNode = null;
         private void advTree1_DataNodeCreated(object sender, DataNodeEventArgs e)
@@ -283,7 +283,7 @@ namespace 大學推甄校內志願選填系統
                 schoolNode.Nodes.AddRange(nodes.ToArray());
             }
             Nodes.AddRange(schoolNodes.ToArray());
-            this.SelectionChanging += delegate(object sender, AdvTreeNodeCancelEventArgs e)
+            this.SelectionChanging += delegate (object sender, AdvTreeNodeCancelEventArgs e)
             {
                 e.Cancel = (e.Node != null && e.Node.Tag == null);
                 if (e.Cancel)

@@ -53,6 +53,11 @@
             // labelX1
             // 
             this.labelX1.AutoSize = true;
+            // 
+            // 
+            // 
+            this.labelX1.BackgroundStyle.Class = "";
+            this.labelX1.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.labelX1.Location = new System.Drawing.Point(40, 94);
             this.labelX1.Name = "labelX1";
             this.labelX1.Size = new System.Drawing.Size(47, 21);
@@ -62,6 +67,11 @@
             // labelX2
             // 
             this.labelX2.AutoSize = true;
+            // 
+            // 
+            // 
+            this.labelX2.BackgroundStyle.Class = "";
+            this.labelX2.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.labelX2.Location = new System.Drawing.Point(299, 94);
             this.labelX2.Name = "labelX2";
             this.labelX2.Size = new System.Drawing.Size(47, 21);
@@ -71,6 +81,11 @@
             // labelX3
             // 
             this.labelX3.AutoSize = true;
+            // 
+            // 
+            // 
+            this.labelX3.BackgroundStyle.Class = "";
+            this.labelX3.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.labelX3.Location = new System.Drawing.Point(299, 64);
             this.labelX3.Name = "labelX3";
             this.labelX3.Size = new System.Drawing.Size(47, 21);
@@ -80,6 +95,11 @@
             // labelX4
             // 
             this.labelX4.AutoSize = true;
+            // 
+            // 
+            // 
+            this.labelX4.BackgroundStyle.Class = "";
+            this.labelX4.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.labelX4.Location = new System.Drawing.Point(40, 64);
             this.labelX4.Name = "labelX4";
             this.labelX4.Size = new System.Drawing.Size(47, 21);
@@ -92,6 +112,7 @@
             // 
             // 
             this.txt梯次.Border.Class = "TextBoxBorder";
+            this.txt梯次.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.txt梯次.Location = new System.Drawing.Point(87, 62);
             this.txt梯次.Name = "txt梯次";
             this.txt梯次.Size = new System.Drawing.Size(100, 25);
@@ -104,6 +125,7 @@
             // 
             // 
             this.txt組別.Border.Class = "TextBoxBorder";
+            this.txt組別.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.txt組別.Location = new System.Drawing.Point(352, 62);
             this.txt組別.Name = "txt組別";
             this.txt組別.Size = new System.Drawing.Size(100, 25);
@@ -116,6 +138,7 @@
             // 
             // 
             this.txt總分.Border.Class = "TextBoxBorder";
+            this.txt總分.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.txt總分.Location = new System.Drawing.Point(87, 92);
             this.txt總分.Name = "txt總分";
             this.txt總分.Size = new System.Drawing.Size(100, 25);
@@ -128,6 +151,7 @@
             // 
             // 
             this.txt排名.Border.Class = "TextBoxBorder";
+            this.txt排名.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.txt排名.Location = new System.Drawing.Point(352, 92);
             this.txt排名.Name = "txt排名";
             this.txt排名.Size = new System.Drawing.Size(100, 25);
@@ -137,6 +161,11 @@
             // labelX5
             // 
             this.labelX5.AutoSize = true;
+            // 
+            // 
+            // 
+            this.labelX5.BackgroundStyle.Class = "";
+            this.labelX5.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.labelX5.Location = new System.Drawing.Point(13, 152);
             this.labelX5.Name = "labelX5";
             this.labelX5.Size = new System.Drawing.Size(74, 21);
@@ -147,6 +176,11 @@
             // labelX6
             // 
             this.labelX6.AutoSize = true;
+            // 
+            // 
+            // 
+            this.labelX6.BackgroundStyle.Class = "";
+            this.labelX6.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.labelX6.Location = new System.Drawing.Point(13, 8);
             this.labelX6.Name = "labelX6";
             this.labelX6.Size = new System.Drawing.Size(74, 21);
@@ -160,6 +194,7 @@
             // 
             // 
             this.comboTree1.BackgroundStyle.Class = "TextBoxBorder";
+            this.comboTree1.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.comboTree1.ButtonDropDown.Visible = true;
             this.comboTree1.Columns.Add(this.校系);
             this.comboTree1.Columns.Add(this.代碼);
@@ -171,10 +206,10 @@
             this.comboTree1.Name = "comboTree1";
             this.comboTree1.Size = new System.Drawing.Size(210, 23);
             this.comboTree1.TabIndex = 2;
-            this.comboTree1.PopupShowing += new System.EventHandler(this.comboTree1_PopupShowing);
+            this.comboTree1.SelectionChanging += new DevComponents.AdvTree.AdvTreeNodeCancelEventHandler(this.comboTree1_SelectionChanging);
             this.comboTree1.SelectedIndexChanged += new System.EventHandler(this.CheckChanged);
             this.comboTree1.PopupClose += new System.EventHandler(this.comboTree1_PopupClose);
-            this.comboTree1.SelectionChanging += new DevComponents.AdvTree.AdvTreeNodeCancelEventHandler(this.comboTree1_SelectionChanging);
+            this.comboTree1.PopupShowing += new System.EventHandler(this.comboTree1_PopupShowing);
             // 
             // 校系
             // 
@@ -198,6 +233,11 @@
             // chk確定分發
             // 
             this.chk確定分發.AutoSize = true;
+            // 
+            // 
+            // 
+            this.chk確定分發.BackgroundStyle.Class = "";
+            this.chk確定分發.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.chk確定分發.Location = new System.Drawing.Point(87, 36);
             this.chk確定分發.Name = "chk確定分發";
             this.chk確定分發.Size = new System.Drawing.Size(80, 21);
@@ -224,6 +264,11 @@
             // labelX7
             // 
             this.labelX7.AutoSize = true;
+            // 
+            // 
+            // 
+            this.labelX7.BackgroundStyle.Class = "";
+            this.labelX7.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.labelX7.Location = new System.Drawing.Point(40, 124);
             this.labelX7.Name = "labelX7";
             this.labelX7.Size = new System.Drawing.Size(47, 21);
@@ -236,6 +281,7 @@
             // 
             // 
             this.txt備註.Border.Class = "TextBoxBorder";
+            this.txt備註.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.txt備註.Location = new System.Drawing.Point(87, 122);
             this.txt備註.Name = "txt備註";
             this.txt備註.Size = new System.Drawing.Size(100, 25);
@@ -261,12 +307,12 @@
             this.Controls.Add(this.labelX3);
             this.Controls.Add(this.labelX1);
             this.Controls.Add(this.txt成績內容);
-            this.Group = "推甄分發";
-            this.Name = "校內志願選填-推甄資料";
+            this.Group = "校內志願選填-推甄資料";
+            this.Name = "推甄資料毛毛蟲";
             this.Size = new System.Drawing.Size(550, 335);
-            this.CancelButtonClick += new System.EventHandler(this.推甄資料毛毛蟲_CancelButtonClick);
             this.PrimaryKeyChanged += new System.EventHandler(this.推甄資料毛毛蟲_PrimaryKeyChanged);
             this.SaveButtonClick += new System.EventHandler(this.推甄資料毛毛蟲_SaveButtonClick);
+            this.CancelButtonClick += new System.EventHandler(this.推甄資料毛毛蟲_CancelButtonClick);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
