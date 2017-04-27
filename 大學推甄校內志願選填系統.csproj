@@ -9,7 +9,7 @@
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>大學推甄校內志願選填系統</RootNamespace>
-    <AssemblyName>大學推甄校內志願選填系統</AssemblyName>
+    <AssemblyName>UniversityRecommendationTrackVolunteerSystem</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <StartupObject>

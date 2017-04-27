@@ -494,6 +494,11 @@ namespace 大學推甄校內志願選填系統.ImportLibrary
             }
             double totleCount = (double)rowDataIndex.Count;
             double count = 0.0;
+
+            // 2017/4/27 穎驊更新 處理 專案[03-03][03]demo 高中進入，會有當機現象。 發現是大學推甄校內志願選填模組 因為 校系資料存在相同的代碼 而造成資料整理Key值重覆錯誤的問題
+            // 目前已將校系資料修正，且日後使用者自行再匯入時，代碼不得空白、與他校系重覆
+            Dictionary<string, string> code_dict = new Dictionary<string, string>();
+            
             foreach (RowData row in rowDataIndex.Keys)
             {
                 #region 驗證
@@ -509,6 +514,17 @@ namespace 大學推甄校內志願選填系統.ImportLibrary
                 errorFields = args.ErrorFields;
                 warningFields = args.WarningFields;
                 rowError = args.ErrorMessage;
+
+                // 2017/4/27 穎驊更新 處理 專案[03-03][03]demo 高中進入，會有當機現象。 發現是大學推甄校內志願選填模組 因為 校系資料存在相同的代碼 而造成資料整理Key值重覆錯誤的問題
+                // 目前已將校系資料修正，且日後使用者自行再匯入時，代碼不得空白、與他校系重覆
+                if (!code_dict.ContainsKey(row["代碼"]))
+                {
+                    code_dict.Add(row["代碼"], row["校名"] + "_" + row["系名"] + "_" + row["組別"]);
+                }
+                else 
+                {
+                    AddError(row, "已存在相同代碼於" + code_dict[row["代碼"]]);                
+                }
 
                 if (rowError != "" || errorFields.Count != 0)
                 {

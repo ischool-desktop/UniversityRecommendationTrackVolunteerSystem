@@ -21,7 +21,13 @@ namespace 大學推甄校內志願選填系統
             });
             foreach (var item in list)
             {
-                items.Add(item.代碼, item);
+                //items.Add(item.代碼, item);
+                // 2017/4/27 穎驊更新 處理 專案[03-03][03]demo 高中進入，會有當機現象。 發現是大學推甄校內志願選填模組 因為 校系資料存在相同的代碼 而造成資料整理Key值重覆錯誤的問題
+                // 目前已將校系資料修正，且日後使用者自行再匯入時，代碼不得空白、與他校系重覆
+                if (!items.ContainsKey(item.代碼)) 
+                {
+                    items.Add(item.代碼, item);                
+                }
             }
             _Items = items;
         }

@@ -30,7 +30,7 @@ namespace 大學推甄校內志願選填系統
                 MotherForm.RibbonBarItems["教務作業", "大學推甄校內志願選填系統"]["推甄校系管理"].Enable = FISCA.Permission.UserAcl.Current["51E6F9F8-B54A-44F9-A1D1-C7477C04CE94"].Executable;
                 MotherForm.RibbonBarItems["教務作業", "大學推甄校內志願選填系統"]["推甄校系管理"].Click += delegate
                 {
-                    new 校系資料管理().ShowDialog();
+                    new 校系資料管理().ShowDialog();               
                 };
             }
             {
